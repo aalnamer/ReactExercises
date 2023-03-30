@@ -30,7 +30,7 @@ const NewTodoForm = ({ addTodo }) => {
         value={formData.todo}
         onChange={handleChange}
       />
-      <button>Add Box</button>
+      <button>Add ToDo</button>
     </form>
   );
 };
