@@ -8,24 +8,23 @@ import useAxios from "./hooks/useAxios";
 /* Renders a list of playing cards.
  * Can also add a new card at random. */
 function CardTable() {
-  // const { response } = useAxios(
-  //   "https://deckofcardsapi.com/api/deck/new/draw/"
-  // );
+  const { response } = useAxios(
+    "https://deckofcardsapi.com/api/deck/new/draw/"
+  );
   const [cards, setCards] = useState([]);
-  const [response, setResponse] = useState([]);
-  console.log(response, ":RESSSSS");
-  console.log(cards, "CARDSSS");
 
-  useEffect(() => {
-    const getData = async (dataUrl) => {
-      const res = await axios.get(dataUrl);
-      setResponse(res);
-    };
-    getData("https://deckofcardsapi.com/api/deck/new/draw/");
-  }, [cards]);
+  // const [response, setResponse] = useState([]);
+
+  // useEffect(() => {
+  //   const getData = async (dataUrl) => {
+  //     const res = await axios.get(dataUrl);
+  //     setResponse(res);
+  //   };
+  //   getData("https://deckofcardsapi.com/api/deck/new/draw/");
+  // }, [cards]);
 
   const addCard = async () => {
-    const res = response;
+    const res = response[0];
     setCards((cards) => [...cards, { ...res.data, id: uuid() }]);
   };
 
